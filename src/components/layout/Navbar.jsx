@@ -41,8 +41,9 @@ export default function Navbar() {
   const isServiceActive = pathname.startsWith('/services');
 
   return (
-    <header
-      className={`fixed w-full top-0 z-50 transition-all duration-300 ${
+    <>
+      <header
+        className={`fixed w-full top-0 z-50 transition-all duration-300 ${
         isScrolled ? 'bg-white shadow-md py-3' : 'bg-white/95 backdrop-blur-sm py-4'
       }`}
     >
@@ -153,9 +154,11 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Mobile Drawer Navigation */}
+      </header>
+
+      {/* Mobile Drawer Navigation (Moved outside header to prevent clipping from backdrop-blur containing block) */}
       <div
-        className={`fixed inset-0 bg-black/50 backdrop-blur-sm z-40 lg:hidden transition-opacity duration-300 ${
+        className={`fixed inset-0 bg-black/50 backdrop-blur-sm z-[60] lg:hidden transition-opacity duration-300 ${
           isOpen ? 'opacity-100 visible' : 'opacity-0 invisible'
         }`}
         onClick={toggleMenu}
@@ -166,7 +169,7 @@ export default function Navbar() {
           } overflow-y-auto`}
           onClick={(e) => e.stopPropagation()}
         >
-          <div className="p-6 flex flex-col h-full">
+          <div className="p-6 flex flex-col min-h-full">
             <div className="flex justify-between items-center mb-8">
               <span className="font-bold text-xl text-dark">Menu</span>
               <button onClick={toggleMenu} className="p-2 bg-gray-100 rounded-full text-gray-600">
@@ -241,7 +244,7 @@ export default function Navbar() {
           </div>
         </div>
       </div>
-    </header>
+    </>
   );
 }
 
