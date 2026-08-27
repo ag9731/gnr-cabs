@@ -13,6 +13,8 @@ export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const pathname = usePathname();
 
+  const [isServicesOpen, setIsServicesOpen] = useState(false);
+
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
@@ -20,6 +22,18 @@ export default function Navbar() {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  // Lock body scroll when mobile menu is open
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [isOpen]);
 
   const toggleMenu = () => setIsOpen(!isOpen);
 
@@ -168,23 +182,32 @@ export default function Navbar() {
                 About Us
               </MobileNavLink>
               
-              <div className="py-3 px-4">
-                <span className="block text-sm font-semibold text-gray-400 uppercase tracking-wider mb-2">Services</span>
-                <div className="flex flex-col gap-1 pl-2 border-l-2 border-gray-100">
-                  <MobileNavLink href="/services" onClick={toggleMenu} active={isActive('/services')}>
-                    All Services
-                  </MobileNavLink>
-                  {services.map(service => (
-                    <MobileNavLink 
-                      key={service.id} 
-                      href={`/services/${service.slug}`} 
-                      onClick={toggleMenu}
-                      active={isActive(`/services/${service.slug}`)}
-                      isSubitem
-                    >
-                      {service.title}
+              <div className="py-1">
+                <button 
+                  onClick={() => setIsServicesOpen(!isServicesOpen)}
+                  className="w-full flex items-center justify-between px-4 py-3 rounded-lg text-gray-700 font-medium hover:bg-gray-50 hover:text-primary transition-colors"
+                >
+                  Services
+                  <ChevronDown className={`w-4 h-4 transition-transform ${isServicesOpen ? 'rotate-180' : ''}`} />
+                </button>
+                
+                <div className={`overflow-hidden transition-all duration-300 ${isServicesOpen ? 'max-h-96 opacity-100 mt-1' : 'max-h-0 opacity-0'}`}>
+                  <div className="flex flex-col gap-1 pl-4 ml-4 border-l-2 border-gray-100">
+                    <MobileNavLink href="/services" onClick={toggleMenu} active={isActive('/services')}>
+                      All Services
                     </MobileNavLink>
-                  ))}
+                    {services.map(service => (
+                      <MobileNavLink 
+                        key={service.id} 
+                        href={`/services/${service.slug}`} 
+                        onClick={toggleMenu}
+                        active={isActive(`/services/${service.slug}`)}
+                        isSubitem
+                      >
+                        {service.title}
+                      </MobileNavLink>
+                    ))}
+                  </div>
                 </div>
               </div>
 
