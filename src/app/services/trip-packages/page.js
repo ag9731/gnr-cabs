@@ -20,7 +20,7 @@ export default function TripPackages() {
         <div className="absolute inset-0 z-0">
           <div className="absolute inset-0 bg-gradient-to-r from-dark via-dark/70 to-transparent z-10"></div>
           <Image 
-            src="/images/trip_packages_hero_1787778599540.jpg" 
+            src="/images/trip_packages_hero.jpg" 
             alt="Scenic view of South Indian hill station" 
             fill 
             className="object-cover opacity-60"

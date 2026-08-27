@@ -19,7 +19,7 @@ export default function AirportTaxi() {
         <div className="absolute inset-0 z-0">
           <div className="absolute inset-0 bg-gradient-to-r from-dark via-dark/80 to-transparent z-10"></div>
           <Image 
-            src="/images/airport_taxi_hero_1787778573267.jpg" 
+            src="/images/airport_taxi_hero.jpg" 
             alt="Airport taxi waiting at Kempegowda International Airport terminal" 
             fill 
             className="object-cover opacity-50"

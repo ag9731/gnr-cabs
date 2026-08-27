@@ -27,7 +27,7 @@ export default function OutstationCabBooking() {
         <div className="absolute inset-0 z-0">
           <div className="absolute inset-0 bg-gradient-to-r from-dark via-dark/80 to-transparent z-10"></div>
           <Image 
-            src="/images/outstation_cab_hero_1787778559435.jpg" 
+            src="/images/outstation_cab_hero.jpg" 
             alt="Outstation cab on a scenic highway" 
             fill 
             className="object-cover opacity-50"

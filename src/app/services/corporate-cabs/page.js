@@ -18,7 +18,7 @@ export default function CorporateCabs() {
         <div className="absolute inset-0 z-0">
           <div className="absolute inset-0 bg-gradient-to-r from-gray-900 via-gray-900/90 to-transparent z-10"></div>
           <Image 
-            src="/images/corporate_cabs_hero_1787778585021.jpg" 
+            src="/images/corporate_cabs_hero.jpg" 
             alt="Business professionals entering a premium corporate cab" 
             fill 
             className="object-cover opacity-50 grayscale-[30%]"

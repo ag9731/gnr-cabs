@@ -18,7 +18,7 @@ export default function LocalCabBooking() {
         <div className="absolute inset-0 z-0">
           <div className="absolute inset-0 bg-gradient-to-r from-dark via-dark/80 to-transparent z-10"></div>
           <Image 
-            src="/images/local_cab_hero_1787778547551.jpg" 
+            src="/images/local_cab_hero.jpg" 
             alt="Local cab driving in Bangalore city" 
             fill 
             className="object-cover opacity-40"
@@ -107,7 +107,7 @@ export default function LocalCabBooking() {
                 <div className="md:w-1/2 relative min-h-[300px]">
                   {/* Reusing hero image for visual balance since it's highly relevant */}
                   <Image 
-                    src="/images/local_cab_hero_1787778547551.jpg" 
+                    src="/images/local_cab_hero.jpg" 
                     alt="Safe cab travel" 
                     fill 
                     className="object-cover"
